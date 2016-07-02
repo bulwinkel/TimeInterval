@@ -10,6 +10,8 @@
 		B640134A1D27CD8C007C4BF4 /* TimeInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = B64013491D27CD8C007C4BF4 /* TimeInterval.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B64013511D27CD8D007C4BF4 /* TimeInterval.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64013461D27CD8C007C4BF4 /* TimeInterval.framework */; };
 		B64013561D27CD8D007C4BF4 /* TimeIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64013551D27CD8D007C4BF4 /* TimeIntervalTests.swift */; };
+		B64013771D27D2C4007C4BF4 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64013751D27D2C4007C4BF4 /* Nimble.framework */; };
+		B64013781D27D2C4007C4BF4 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64013761D27D2C4007C4BF4 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		B64013501D27CD8D007C4BF4 /* TimeIntervalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeIntervalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64013551D27CD8D007C4BF4 /* TimeIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalTests.swift; sourceTree = "<group>"; };
 		B64013571D27CD8D007C4BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B64013751D27D2C4007C4BF4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		B64013761D27D2C4007C4BF4 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64013771D27D2C4007C4BF4 /* Nimble.framework in Frameworks */,
+				B64013781D27D2C4007C4BF4 /* Quick.framework in Frameworks */,
 				B64013511D27CD8D007C4BF4 /* TimeInterval.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +59,7 @@
 		B640133C1D27CD8C007C4BF4 = {
 			isa = PBXGroup;
 			children = (
+				B64013791D27D36C007C4BF4 /* Frameworks */,
 				B64013481D27CD8C007C4BF4 /* TimeInterval */,
 				B64013541D27CD8D007C4BF4 /* TimeIntervalTests */,
 				B64013471D27CD8C007C4BF4 /* Products */,
@@ -84,6 +91,15 @@
 				B64013571D27CD8D007C4BF4 /* Info.plist */,
 			);
 			path = TimeIntervalTests;
+			sourceTree = "<group>";
+		};
+		B64013791D27D36C007C4BF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B64013751D27D2C4007C4BF4 /* Nimble.framework */,
+				B64013761D27D2C4007C4BF4 /* Quick.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +394,7 @@
 				B640135C1D27CD8D007C4BF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B640135D1D27CD8D007C4BF4 /* Build configuration list for PBXNativeTarget "TimeIntervalTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +403,7 @@
 				B640135F1D27CD8D007C4BF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
