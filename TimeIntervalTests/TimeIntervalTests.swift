@@ -57,7 +57,20 @@ class TimeIntervalTests: QuickSpec {
                 expect(180.minutes) > 2.hours
                 expect(23.hours).to(beLessThan(1.days))
             }
-
+            it("can be mutiplied with a double value") {
+                expect(5 * 1.seconds) == 5.seconds
+                expect(1.seconds * 5) == 5.seconds
+                expect(5 * 2.minutes) == 10.minutes
+                expect(2.minutes * 5) == 10.minutes
+                expect(1.hours * 24) == 1.days
+                expect(1.days * 2) == 48.hours
+            }
+            it("can be divided by a double value") {
+                expect(5.seconds / 5) == 1.seconds
+                expect(10.minutes / 5) == 2.minutes
+                expect(1.days / 24) == 1.hours
+                expect(48.hours / 2) == 1.days
+            }
         }
     }
 }

@@ -74,11 +74,15 @@ public func -(lhs: TimeInterval, rhs: TimeInterval) -> TimeInterval {
     return performOperator(-, lhs: lhs, rhs: rhs)
 }
 
-public func *(lhs: TimeInterval, rhs: TimeInterval) -> TimeInterval {
-    return performOperator(*, lhs: lhs, rhs: rhs)
+public func *(lhs: Double, rhs: TimeInterval) -> TimeInterval {
+    return (lhs * rhs.inSeconds).seconds
 }
 
-public func /(lhs: TimeInterval, rhs: TimeInterval) -> TimeInterval {
-    return performOperator(/, lhs: lhs, rhs: rhs)
+public func *(lhs: TimeInterval, rhs: Double) -> TimeInterval {
+    return rhs * lhs
+}
+
+public func /(lhs: TimeInterval, rhs: Double) -> TimeInterval {
+    return (lhs.inSeconds / rhs).seconds
 }
 
