@@ -12,35 +12,52 @@ import TimeInterval
 
 class TimeIntervalTests: QuickSpec {
     override func spec() {
-        describe("TimeInterval") {
+        describe("TimeInterval value") {
             it("correctly represents seconds") {
-                let interval = TimeInterval(5)
-                expect(interval.valueIn(.Days)).to(equal(5 / 86400))
-                expect(interval.valueIn(.Hours)).to(equal(5 / 3600))
-                expect(interval.valueIn(.Minutes)).to(equal(5 / 60))
-                expect(interval.valueIn(.Seconds)).to(equal(5))
+                let interval = 5.seconds
+                expect(interval.inDays).to(equal(5 / 86400))
+                expect(interval.inHours).to(equal(5 / 3600))
+                expect(interval.inMinutes).to(equal(5 / 60))
+                expect(interval.inSeconds).to(equal(5))
             }
             it("correctly represents minutes") {
-                let interval = TimeInterval(5, metric: .Minutes)
-                expect(interval.valueIn(.Days)).to(equal(5 / 60 / 24))
-                expect(interval.valueIn(.Hours)).to(equal(5 / 60))
-                expect(interval.valueIn(.Minutes)).to(equal(5))
-                expect(interval.valueIn(.Seconds)).to(equal(5 * 60))
+                let interval = 5.minutes
+                expect(interval.inDays).to(equal(5 / 60 / 24))
+                expect(interval.inHours).to(equal(5 / 60))
+                expect(interval.inMinutes).to(equal(5))
+                expect(interval.inSeconds).to(equal(5 * 60))
             }
             it("correctly represents hours") {
-                let interval = TimeInterval(5, metric: .Hours)
-                expect(interval.valueIn(.Days)).to(equal(5 / 24))
-                expect(interval.valueIn(.Hours)).to(equal(5))
-                expect(interval.valueIn(.Minutes)).to(equal(5 * 60))
-                expect(interval.valueIn(.Seconds)).to(equal(5 * 60 * 60))
+                let interval = 5.hours
+                expect(interval.inDays).to(equal(5 / 24))
+                expect(interval.inHours).to(equal(5))
+                expect(interval.inMinutes).to(equal(5 * 60))
+                expect(interval.inSeconds).to(equal(5 * 60 * 60))
             }
             it("correctly represents days") {
-                let interval = TimeInterval(5, metric: .Days)
-                expect(interval.valueIn(.Days)).to(equal(5))
-                expect(interval.valueIn(.Hours)).to(equal(5 * 24))
-                expect(interval.valueIn(.Minutes)).to(equal(5 * 60 * 24))
-                expect(interval.valueIn(.Seconds)).to(equal(5 * 60 * 60 * 24))
+                let interval = 5.days
+                expect(interval.inDays).to(equal(5))
+                expect(interval.inHours).to(equal(5 * 24))
+                expect(interval.inMinutes).to(equal(5 * 60 * 24))
+                expect(interval.inSeconds).to(equal(5 * 60 * 60 * 24))
             }
+            it("evaluates equality correctly") {
+                expect(60.minutes).to(equal(1.hours))
+                expect(60.minutes).to(equal(3600.seconds))
+                expect(30.seconds).to(equal(0.5.minutes))
+                expect(20.minutes).to(equal((1/3).hours))
+                expect(6.hours).to(equal((1/4).days))
+
+                expect(1.hours) != 1.minutes
+            }
+            it("evaluates comparisons correctly") {
+                expect(1.seconds) < 1.minutes
+                expect(1.seconds).toNot(beGreaterThan(1.minutes))
+                expect(61.minutes) > 1.hours
+                expect(180.minutes) > 2.hours
+                expect(23.hours).to(beLessThan(1.days))
+            }
+
         }
     }
 }

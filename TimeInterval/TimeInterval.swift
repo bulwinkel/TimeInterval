@@ -6,13 +6,12 @@
 /// Type safe time value wrapper
 public struct TimeInterval {
 
-    /// Int value represents the number of seconds in the given metric
+    /// Double value representing the number of seconds in the given metric
     public enum Metric : Double {
         case Seconds    = 1
         case Minutes    = 60
         case Hours      = 3600
         case Days       = 86400
-
     }
 
     /// the initial value passed into the constructor
@@ -31,13 +30,22 @@ public struct TimeInterval {
     }
 }
 
-//MARK: Extensions
+//MARK: Convenience converters
+
+extension TimeInterval {
+    public var inSeconds:   Double { return valueIn(.Seconds) }
+    public var inMinutes:   Double { return valueIn(.Minutes) }
+    public var inHours:     Double { return valueIn(.Hours) }
+    public var inDays:      Double { return valueIn(.Days) }
+}
+
+//MARK: Double extensions
 
 extension Double {
-    var seconds : TimeInterval { return TimeInterval(self, metric: .Seconds) }
-    var minutes : TimeInterval { return TimeInterval(self, metric: .Minutes) }
-    var hours   : TimeInterval { return TimeInterval(self, metric: .Hours) }
-    var days   : TimeInterval { return TimeInterval(self, metric: .Days) }
+    public var seconds: TimeInterval { return TimeInterval(self, metric: .Seconds) }
+    public var minutes: TimeInterval { return TimeInterval(self, metric: .Minutes) }
+    public var hours:   TimeInterval { return TimeInterval(self, metric: .Hours) }
+    public var days:    TimeInterval { return TimeInterval(self, metric: .Days) }
 }
 
 //MARK: Equatable, Comparable
