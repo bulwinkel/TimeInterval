@@ -1,7 +1,7 @@
 TimeInterval
 ===
 
-TimeInterval humanises dealing with time operations in swift.
+Humanised time intervals in swift.
 
 
 ## License
